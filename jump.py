@@ -147,7 +147,7 @@ def calculation(android, ground, Apply_force_down_t):
         f += -K * x
         #f += -C * android.velocity# 減衰        
         if jump and tmp_t >= Apply_force_down_t:# ジャンプする
-            f += 10*android.weight * G
+            f += 2*android.weight * G
             #print(f'T_J: {tmp_t}\nAFD: {Apply_force_down_t}\n')
             jump = False
             android.n_jump+=1
@@ -208,8 +208,8 @@ def main():
     trial = 0
     while(True):
         y_max = -10000
-        android = Android(150, 100, 40, 40, 'android', 1)# ドロイド君生成，位置(x,y)=(150, 100),大きさ(40*40)
-        Apply_force_down_t = 1# ジャンプするタイミングによって，y_maxを最適化する．y_maxは10回目の頂点の高さ
+        android = Android(150, 300, 40, 40, 'android', 1)# ドロイド君生成，位置(x,y)=(150, 100),大きさ(40*40)
+        Apply_force_down_t = 3# ジャンプするタイミングによって，y_maxを最適化する．y_maxは10回目の頂点の高さ
         
         while(True):
             button()# ボタン処理
@@ -225,7 +225,7 @@ def main():
                 if y_max < tmp_y:
                    y_max = tmp_y 
                 break
-        #y_max
+        # y_max
         trial += 1#試行回数
         data.append(y_max)
         if state == 2 and trial%10==0:
