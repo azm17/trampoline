@@ -209,7 +209,7 @@ def main():
     while(True):
         y_max = -10000
         android = Android(150, 300, 40, 40, 'android', 1)# ドロイド君生成，位置(x,y)=(150, 100),大きさ(40*40)
-        Apply_force_down_t = 3# ジャンプするタイミングによって，y_maxを最適化する．y_maxは10回目の頂点の高さ
+        Apply_force_down_t = 2# ジャンプするタイミングによって，y_maxを最適化する．y_maxは10回目の頂点の高さ
         
         while(True):
             button()# ボタン処理
